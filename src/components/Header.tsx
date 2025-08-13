@@ -39,21 +39,12 @@ const Header = () => {
             </a>
           </nav>
 
-          
-
-          {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center space-x-4">
+          {/* Theme Toggle */}
+          <div className="hidden md:flex items-center space-x-6">
             <ThemeToggle />
-            <button
-              className="text-gray-700 dark:text-gray-300"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
           </div>
-        </div>
 
-        {/* Mobile Navigation */}
+        </div>
         {isMenuOpen && (
           <nav className="lg:hidden pb-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col space-y-2 pt-4">

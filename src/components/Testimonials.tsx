@@ -96,7 +96,7 @@ const Testimonials = () => {
             made our clients successful. Schedule your consultation today.
           </p>
           <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-            Get Your Free Consultation
+            Get Your First Consultation
           </button>
         </div>
       </div>

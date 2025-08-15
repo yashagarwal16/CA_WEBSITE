@@ -25,33 +25,49 @@ const HomePage = () => (
 function App() {
   return (
     <ThemeProvider>
-        <Router>
-          <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-            <Toaster position="top-right" />
-            
-            <Routes>
-              <Route path="/service/:serviceId" element={
+      <Router>
+        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+          <Toaster position="top-right" />
+
+          <Routes>
+            {/* Service Detail Page */}
+            <Route
+              path="/service/:serviceId"
+              element={
                 <>
                   <Header />
                   <ServiceDetail />
                   <Footer />
                 </>
-              } />
-              <Route path="/consultation" element={
+              }
+            />
+
+            {/* Consultation Page */}
+            <Route
+              path="/consultation"
+              element={
+                <>
                   <Header />
                   <Consultation />
                   <Footer />
-              } />
-              <Route path="/" element={
+                </>
+              }
+            />
+
+            {/* Home Page */}
+            <Route
+              path="/"
+              element={
                 <>
                   <Header />
                   <HomePage />
                   <Footer />
                 </>
-              } />
-            </Routes>
-          </div>
-        </Router>
+              }
+            />
+          </Routes>
+        </div>
+      </Router>
     </ThemeProvider>
   );
 }

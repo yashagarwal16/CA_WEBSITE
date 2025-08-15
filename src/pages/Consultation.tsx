@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, CheckCircle, ArrowRight } from 'lucide-react';
-import axios from 'axios';
 import toast from 'react-hot-toast';
 
 const Consultation = () => {
@@ -30,20 +29,26 @@ const Consultation = () => {
     setLoading(true);
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-      await axios.post(`${API_URL}/api/consultation/book`, {
+      // Simulate form submission (in a real app, this would send to your backend)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Log the consultation data (in production, you'd send this to your backend)
+      console.log('Consultation booking:', {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         service: formData.service,
         message: formData.message,
-        preferredDate: formData.preferredDate ? new Date(`${formData.preferredDate}T${formData.preferredTime}`) : undefined
+        preferredDate: formData.preferredDate,
+        preferredTime: formData.preferredTime,
+        submittedAt: new Date().toISOString()
       });
 
       setIsSubmitted(true);
       toast.success('Consultation booked successfully!');
     } catch (error) {
-      toast.error('Failed to book consultation. Please try again.');
+      console.error('Form submission error:', error);
+      toast.error('Something went wrong. Please try calling us directly at +91 97334-12222');
     } finally {
       setLoading(false);
     }
@@ -84,10 +89,10 @@ const Consultation = () => {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 dark:from-blue-500 dark:to-indigo-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Schedule Your Free Consultation
+            Schedule Your Consultation
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Get expert advice from our chartered accountants. We'll help you understand your options and create a customized solution for your needs.
+            Get expert advice from our chartered accountant. We'll help you understand your options and create a customized solution for your needs.
           </p>
         </div>
       </section>
@@ -100,7 +105,7 @@ const Consultation = () => {
               Schedule Your Consultation
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
-              We're excited to help you with your financial needs. Please fill out the form below to schedule your free consultation.
+              We're excited to help you with your financial needs. Please fill out the form below to schedule your first Consultation.
             </p>
           </div>
 
@@ -231,7 +236,7 @@ const Consultation = () => {
                   disabled={loading}
                   className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {loading ? 'Booking...' : 'Book Free Consultation'}
+                  {loading ? 'Booking...' : 'Book First Consultation'}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </form>
@@ -250,9 +255,9 @@ const Consultation = () => {
                       <Calendar className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Free 30-Minute Consultation</h4>
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Get Consultation Session Scheduled Online or In-Person </h4>
                       <p className="text-gray-600 dark:text-gray-300">
-                        Discuss your needs with our expert chartered accountants at no cost.
+                        Discuss your needs with our expert chartered accountant and get your queries resolved.
                       </p>
                     </div>
                   </div>

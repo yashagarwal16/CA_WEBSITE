@@ -23,6 +23,9 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
+// Configure axios defaults
+axios.defaults.timeout = 10000; // 10 second timeout
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
@@ -38,6 +41,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const register = async (name: string, email: string, phone: string, password: string): Promise<string> => {
     try {
       setLoading(true);
+      console.log('Attempting registration with API URL:', API_URL);
+      
       const response = await axios.post(`${API_URL}/api/auth/register`, {
         name,
         email,
@@ -48,6 +53,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.success('Registration successful! OTP sent to your phone.');
       return response.data.userId;
     } catch (error: any) {
+      console.error('Registration error:', error);
       const message = error.response?.data?.message || 'Registration failed';
       toast.error(message);
       throw new Error(message);
@@ -84,6 +90,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
       setLoading(true);
+      console.log('Attempting login with API URL:', API_URL);
+      
       const response = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password
@@ -98,6 +106,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       toast.success('Login successful!');
       return true;
     } catch (error: any) {
+      console.error('Login error:', error);
       const message = error.response?.data?.message || 'Login failed';
       toast.error(message);
       return false;

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, CheckCircle, ArrowRight } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
 const Consultation = () => {
-  const { user } = useAuth();
   const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
     service: '',
     message: '',
     preferredDate: '',
@@ -31,7 +32,9 @@ const Consultation = () => {
     try {
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
       await axios.post(`${API_URL}/api/consultation/book`, {
-        userId: user?.id,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
         service: formData.service,
         message: formData.message,
         preferredDate: formData.preferredDate ? new Date(`${formData.preferredDate}T${formData.preferredTime}`) : undefined
@@ -94,7 +97,7 @@ const Consultation = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Welcome, {user?.name}!
+              Schedule Your Consultation
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
               We're excited to help you with your financial needs. Please fill out the form below to schedule your free consultation.
@@ -109,6 +112,52 @@ const Consultation = () => {
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all"
+                      placeholder="Enter your email address"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Service Needed *

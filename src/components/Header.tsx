@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
-import { useAuth } from '../contexts/AuthContext';
 import Logo from './Logo';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme } = useTheme();
-  const { user, logout } = useAuth();
 
   return (
     <header className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-xl fixed w-full top-0 z-50 transition-all duration-300 border-b border-gray-200/20 dark:border-gray-700/20">
@@ -44,32 +41,6 @@ const Header = () => {
 
           {/* Theme Toggle */}
           <div className="hidden md:flex items-center space-x-6">
-            {user ? (
-              <div className="flex items-center space-x-4">
-                <span className="text-gray-700 dark:text-gray-300">Welcome, {user.name}</span>
-                <button
-                  onClick={logout}
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
-                >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <Link
-                  to="/login"
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  Sign Up
-                </Link>
-              </div>
-            )}
             <ThemeToggle />
           </div>
 
@@ -89,19 +60,6 @@ const Header = () => {
               <a href="#about" className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium">About</a>
               <a href="#testimonials" className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium">Testimonials</a>
               <a href="#contact" className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium">Contact</a>
-              {user ? (
-                <button
-                  onClick={logout}
-                  className="block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium"
-                >
-                  Logout
-                </button>
-              ) : (
-                <>
-                  <Link to="/login" className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/30 font-medium">Login</Link>
-                  <Link to="/register" className="block px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium text-center shadow-lg">Sign Up</Link>
-                </>
-              )}
             </div>
           </nav>
         )}

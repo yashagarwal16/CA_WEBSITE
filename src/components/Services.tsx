@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Calculator, 
   FileText, 
@@ -15,36 +16,42 @@ const Services = () => {
   const services = [
     {
       icon: FileText,
+      slug: 'accounting-bookkeeping',
       title: 'Accounting & Bookkeeping',
       description: 'Keep your finances in perfect order with our reliable accounting solutions.',
       features: ['Daily bookkeeping & ledger maintenance', 'Financial statements & MIS reports', 'Expense tracking & analysis']
     },
     {
       icon: Shield,
+      slug: 'taxation-gst',
       title: 'Taxation & GST Services',
       description: 'Stay compliant while saving time and money with our hassle-free tax services.',
       features: ['GST registration & monthly/quarterly returns', 'Income Tax filing for individuals & companies', 'Tax planning & savings strategies']
     },
     {
       icon: TrendingUp,
+      slug: 'audit-assurance',
       title: 'Audit & Assurance',
       description: 'Independent audits that build trust, ensure compliance, and prevent errors.',
       features: ['Statutory audits', 'Internal audits', 'Tax audits & compliance checks']
     },
     {
       icon: PieChart,
+      slug: 'business-registration',
       title: 'Business & Company Registrations',
       description: 'Helping you start right with smooth, quick, and cost-effective registrations.',
       features: ['Private Limited company incorporation', 'LLP registration', 'NGO, Trust & Society registrations']
     },
     {
       icon: Building,
+      slug: 'financial-advisory',
       title: 'Financial Advisory & Valuation',
       description: 'Smart advice for informed financial decisions and sustainable growth.',
       features: ['Business planning & budgeting', 'Asset valuation & reporting', 'Investment advisory']
     },
     {
       icon: CreditCard,
+      slug: 'financial-planning',
       title: 'Financial Planning',
       description: 'Personalized financial planning services to help you achieve your long-term financial goals.',
       features: ['Retirement Planning', 'Investment Strategy', 'Debt Management', 'Budgeting']
@@ -93,10 +100,13 @@ const Services = () => {
                   ))}
                 </ul>
                 
-                <button className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 flex items-center group/btn">
-                  
+                <Link 
+                  to={`/service/${service.slug}`}
+                  className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 flex items-center group/btn"
+                >
+                  Learn More
                   <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             );
           })}
@@ -111,9 +121,12 @@ const Services = () => {
             Schedule a free consultation with our expert chartered accountants and discover 
             how we can help optimize your financial strategy.
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <Link 
+            to="/consultation"
+            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
             Schedule Free Consultation
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { useAuth } from '../contexts/AuthContext';
 import Logo from './Logo';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme } = useTheme();
+  const { user, logout } = useAuth();
 
   return (
     <header className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg fixed w-full top-0 z-50 transition-colors duration-300">
@@ -41,6 +44,32 @@ const Header = () => {
 
           {/* Theme Toggle */}
           <div className="hidden md:flex items-center space-x-6">
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-gray-700 dark:text-gray-300">Welcome, {user.name}</span>
+                <button
+                  onClick={logout}
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/login"
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
             <ThemeToggle />
           </div>
 
@@ -53,6 +82,19 @@ const Header = () => {
               <a href="#about" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
               <a href="#testimonials" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Testimonials</a>
               <a href="#contact" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+              {user ? (
+                <button
+                  onClick={logout}
+                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link to="/login" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Login</Link>
+                  <Link to="/register" className="block px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Sign Up</Link>
+                </>
+              )}
             </div>
           </nav>
         )}

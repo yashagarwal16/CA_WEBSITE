@@ -46,6 +46,10 @@ const Consultation = () => {
         }),
       });
 
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+
       const result = await response.json();
       
       if (result.success) {
@@ -61,7 +65,12 @@ const Consultation = () => {
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      toast.error(error.message || 'Something went wrong. Please try calling us directly at +91 97334-12222');
+      
+      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        toast.error('Unable to connect to server. Please try calling us directly at +91 97334-12222');
+      } else {
+        toast.error(error.message || 'Something went wrong. Please try calling us directly at +91 97334-12222');
+      }
     } finally {
       setLoading(false);
     }

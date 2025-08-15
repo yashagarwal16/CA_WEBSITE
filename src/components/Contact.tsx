@@ -50,7 +50,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8">
+          <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-700 dark:to-gray-800 rounded-3xl shadow-2xl p-8 border border-gray-100 dark:border-gray-600">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Schedule Your Free Consultation
             </h3>
@@ -74,7 +74,7 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all duration-300 shadow-sm hover:shadow-md"
                       placeholder="Your full name"
                     />
                   </div>
@@ -88,7 +88,7 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all duration-300 shadow-sm hover:shadow-md"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -104,7 +104,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all duration-300 shadow-sm hover:shadow-md"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -116,7 +116,7 @@ const Contact = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all duration-300 shadow-sm hover:shadow-md"
                     >
                       <option value="">Select a service</option>
                       <option value="tax">Accounting & Bookkeeping</option>
@@ -138,17 +138,17 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all duration-300 resize-none shadow-sm hover:shadow-md"
                     placeholder="Tell us about your needs..."
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 dark:from-blue-500 dark:to-blue-600 dark:hover:from-blue-600 dark:hover:to-blue-700 text-white py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center group shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105"
                 >
                   Send Message
-                  <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <Send className="ml-2 h-5 w-5 group-hover:translate-x-2 group-hover:rotate-12 transition-transform duration-300" />
                 </button>
               </form>
             )}
@@ -157,12 +157,12 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Contact Details */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8">
+            <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-700 dark:to-gray-800 rounded-3xl shadow-2xl p-8 border border-gray-100 dark:border-gray-600">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 shadow-lg hover:scale-110 transition-transform duration-300">
                     <Phone className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
@@ -172,7 +172,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 shadow-lg hover:scale-110 transition-transform duration-300">
                     <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
@@ -182,7 +182,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 shadow-lg hover:scale-110 transition-transform duration-300">
                     <MapPin className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
@@ -196,7 +196,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 shadow-lg hover:scale-110 transition-transform duration-300">
                     <Clock className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
@@ -211,17 +211,20 @@ const Contact = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 dark:from-blue-500 dark:to-indigo-600 rounded-2xl p-8 text-white shadow-2xl">
+            <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-500 dark:via-purple-500 dark:to-indigo-600 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 animate-pulse"></div>
+              <div className="relative z-10">
               <h3 className="text-2xl font-bold mb-6">Quick Actions</h3>
               <div className="space-y-4">
-                <button className="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <button className="w-full bg-white text-blue-600 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105">
                   <Calendar className="mr-2 h-5 w-5" />
                   Schedule Appointment
                 </button>
-                <button className="w-full border-2 border-white text-white py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <button className="w-full border-2 border-white text-white py-3 rounded-xl font-bold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105">
                   <Building2 className="mr-2 h-5 w-5" />
                   Virtual Consultation
                 </button>
+              </div>
               </div>
             </div>
           </div>

@@ -58,7 +58,14 @@ const Consultation = () => {
         
         // Show additional info if notifications had issues
         if (result.warning) {
-          toast.info(result.warning, { duration: 4000 });
+          toast(result.warning, { 
+            duration: 4000,
+            icon: 'ℹ️',
+            style: {
+              background: '#3b82f6',
+              color: 'white',
+            }
+          });
         }
       } else {
         throw new Error(result.error || 'Booking failed');

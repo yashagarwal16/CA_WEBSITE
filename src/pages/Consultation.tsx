@@ -29,26 +29,39 @@ const Consultation = () => {
     setLoading(true);
 
     try {
-      // Simulate form submission (in a real app, this would send to your backend)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Log the consultation data (in production, you'd send this to your backend)
-      console.log('Consultation booking:', {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        message: formData.message,
-        preferredDate: formData.preferredDate,
-        preferredTime: formData.preferredTime,
-        submittedAt: new Date().toISOString()
+      // Send booking data to backend
+      const response = await fetch('/api/book-consultation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          preferredDate: formData.preferredDate,
+          preferredTime: formData.preferredTime,
+        }),
       });
 
-      setIsSubmitted(true);
-      toast.success('Consultation booked successfully!');
+      const result = await response.json();
+      
+      if (result.success) {
+        setIsSubmitted(true);
+        toast.success(result.message);
+        
+        // Show additional info if notifications had issues
+        if (result.warning) {
+          toast.info(result.warning, { duration: 4000 });
+        }
+      } else {
+        throw new Error(result.error || 'Booking failed');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
-      toast.error('Something went wrong. Please try calling us directly at +91 97334-12222');
+      toast.error(error.message || 'Something went wrong. Please try calling us directly at +91 97334-12222');
     } finally {
       setLoading(false);
     }
@@ -70,7 +83,7 @@ const Consultation = () => {
             Consultation Booked!
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Thank you for booking a consultation with us. We'll contact you within 24 hours to confirm your appointment.
+            Thank you for booking a consultation with us. We've notified our team and will contact you within 24 hours to confirm your appointment.
           </p>
           <button
             onClick={() => setIsSubmitted(false)}

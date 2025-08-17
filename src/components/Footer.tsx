@@ -39,12 +39,13 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6">Our Services</h4>
             <ul className="space-y-3">
-              <li><a href="https://www.bing.com/search?q=ca+official+logo&qs=UT&pq=ca+offici&sk=AS1&sc=12-9&cvid=9E1773806814410E8E71D220C0E1B28F&FORM=QBRE&sp=2&ghc=1&lq=0" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Tax Preparation & Planning</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Audit & Assurance</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Business Consulting</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Financial Planning</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Corporate Services</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Payroll & Bookkeeping</a></li>
+              <li><a href="#services" id="accounting-bookkeeping-link" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 slung inline-block">Accounting & Bookkeeping</a></li>
+              <li><a href="#services" id="taxation-gst-link" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 slung inline-block">Taxation & GST Services </a></li>
+              <li><a href="#services" id="audit-assurance-link" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 slung inline-block">Audit & Assurance</a></li>
+              <li><a href="#services" id="business-registration-link" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 slung inline-block">Business & Company Registrations</a></li>
+              <li><a href="#services" id="financial-advisory-link" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 slung inline-block">Financial Advisory & Valuation</a></li>
+              <li><a href="#services" id="audit-link" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 slung inline-block">Financial Planning</a></li>
+
             </ul>
           </div>
 
@@ -57,7 +58,7 @@ const Footer = () => {
               <li><a href="#about" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">About Us</a></li>
               <li><a href="#testimonials" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Testimonials</a></li>
               <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Contact</a></li>
-              <li><a href="" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Portfolio</a></li>
+              <li><a href="https://shawburndemo.wordpress.com/portfolio/" className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform duration-300 inline-block">Portfolio</a></li>
             </ul>
           </div>
 

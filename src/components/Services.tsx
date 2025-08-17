@@ -15,6 +15,7 @@ import {
 const Services = () => {
   const services = [
     {
+      id: 'accounting',
       icon: FileText,
       slug: 'accounting-bookkeeping',
       title: 'Accounting & Bookkeeping',
@@ -22,6 +23,7 @@ const Services = () => {
       features: ['Daily bookkeeping & ledger maintenance', 'Financial statements & MIS reports', 'Expense tracking & analysis']
     },
     {
+      id: 'taxation',
       icon: Shield,
       slug: 'taxation-gst',
       title: 'Taxation & GST Services',
@@ -29,6 +31,7 @@ const Services = () => {
       features: ['GST registration & monthly/quarterly returns', 'Income Tax filing for individuals & companies', 'Tax planning & savings strategies']
     },
     {
+      id: 'audit',
       icon: TrendingUp,
       slug: 'audit-assurance',
       title: 'Audit & Assurance',
@@ -36,6 +39,7 @@ const Services = () => {
       features: ['Statutory audits', 'Internal audits', 'Tax audits & compliance checks']
     },
     {
+      id: 'registration',
       icon: PieChart,
       slug: 'business-registration',
       title: 'Business & Company Registrations',
@@ -43,6 +47,7 @@ const Services = () => {
       features: ['Private Limited company incorporation', 'LLP registration', 'NGO, Trust & Society registrations']
     },
     {
+      id: 'financial-advisory',
       icon: Building,
       slug: 'financial-advisory',
       title: 'Financial Advisory & Valuation',
@@ -50,6 +55,7 @@ const Services = () => {
       features: ['Business planning & budgeting', 'Asset valuation & reporting', 'Investment advisory']
     },
     {
+      id: 'financial-planning',
       icon: CreditCard,
       slug: 'financial-planning',
       title: 'Financial Planning',

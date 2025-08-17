@@ -179,7 +179,7 @@ const ServiceDetail = () => {
                   to="/consultation"
                   className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
-                  Get Free Consultation
+                  Get Your First Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
                 <a
@@ -256,14 +256,14 @@ const ServiceDetail = () => {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Schedule a free consultation with our experts and discover how we can help your business grow.
+            Schedule a First  consultation with our experts and discover how we can help your business grow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/consultation"
               className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              Schedule Free Consultation
+              Schedule First Consultation
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <a

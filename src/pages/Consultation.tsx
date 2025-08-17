@@ -46,6 +46,10 @@ const Consultation = () => {
         }),
       });
 
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+
       const result = await response.json();
       
       if (result.success) {
@@ -54,14 +58,26 @@ const Consultation = () => {
         
         // Show additional info if notifications had issues
         if (result.warning) {
-          toast.info(result.warning, { duration: 4000 });
+          toast(result.warning, { 
+            duration: 4000,
+            icon: 'ℹ️',
+            style: {
+              background: '#3b82f6',
+              color: 'white',
+            }
+          });
         }
       } else {
         throw new Error(result.error || 'Booking failed');
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      toast.error(error.message || 'Something went wrong. Please try calling us directly at +91 97334-12222');
+      
+      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        toast.error('Unable to connect to server. Please try calling us directly at +91 97334-12222');
+      } else {
+        toast.error(error.message || 'Something went wrong. Please try calling us directly at +91 97334-12222');
+      }
     } finally {
       setLoading(false);
     }

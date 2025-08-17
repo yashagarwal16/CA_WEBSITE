@@ -11,10 +11,10 @@ const twilioClient = twilio(
 );
 
 // Create email transporter
-const emailTransporter = nodemailer.createTransporter({
+const emailTransporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT),
-  secure: false, // true for 465, false for other ports
+  port: parseInt(process.env.SMTP_PORT, 10),
+  secure: false, // true for 465, false for others
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -133,7 +133,6 @@ export const sendBookingNotifications = async (bookingData) => {
     whatsapp: { success: false }
   };
 
-  // Send email notification
   try {
     results.email = await sendEmailNotification(bookingData);
   } catch (error) {
@@ -141,7 +140,6 @@ export const sendBookingNotifications = async (bookingData) => {
     results.email = { success: false, error: error.message };
   }
 
-  // Send WhatsApp notification
   try {
     results.whatsapp = await sendWhatsAppNotification(bookingData);
   } catch (error) {

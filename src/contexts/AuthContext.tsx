@@ -43,9 +43,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-      });
+      }); 
 
-      const data = await response.json();
+      
+      const text = await response.text();
+      console.log("Raw response from backend:", text);
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (err) {
+        throw new Error("Backend did not return valid JSON");
+      }
+
+
+ 
 
       if (!response.ok) {
         throw new Error(data.error || 'Login failed');

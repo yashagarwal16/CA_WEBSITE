@@ -37,7 +37,7 @@ Always be professional, helpful, and encourage users to book a consultation for 
 
 export class GeminiChatService {
   constructor() {
-    this.model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    this.model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   }
 
   async generateResponse(userMessage, chatHistory = []) {

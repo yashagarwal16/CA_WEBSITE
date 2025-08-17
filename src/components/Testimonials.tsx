@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import ReviewForm from './ReviewForm';
 
 const Testimonials = () => {
   const testimonials = [
@@ -86,18 +87,20 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to Join Our Satisfied Clients?
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            Experience the same level of professional service and expertise that has 
-            made our clients successful. Schedule your consultation today.
-          </p>
-          <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-            Get Your First Consultation
-          </button>
+        {/* Review Form Section */}
+        <div className="mt-16">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Share Your Experience
+            </h3>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              We'd love to hear about your experience with our services. Your feedback helps us improve and helps others make informed decisions.
+            </p>
+          </div>
+          
+          <div className="max-w-2xl mx-auto">
+            <ReviewForm />
+          </div>
         </div>
       </div>
     </section>

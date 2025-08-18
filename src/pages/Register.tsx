@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { UserPlus, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
@@ -17,6 +17,9 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const { register } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +39,7 @@ const Register = () => {
     try {
       await register(formData.name, formData.email, formData.password, formData.phone);
       toast.success('Registration successful! Welcome to Kamlesh Temani & Associates');
-      navigate('/');
+      navigate(from, { replace: true });
     } catch (error: any) {
       toast.error(error.message || 'Registration failed');
     } finally {
@@ -61,7 +64,10 @@ const Register = () => {
             </div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Create Account</h2>
             <p className="text-gray-600 dark:text-gray-300 mt-2">
-              Join us to access our professional services
+              {from === '/consultation' 
+                ? 'Create an account to book a consultation' 
+                : 'Join us to access our professional services'
+              }
             </p>
           </div>
 
@@ -170,7 +176,11 @@ const Register = () => {
           <div className="mt-6 text-center">
             <p className="text-gray-600 dark:text-gray-300">
               Already have an account?{' '}
-              <Link to="/login" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
+              <Link 
+                to="/login" 
+                state={{ from: location.state?.from }}
+                className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+              >
                 Sign in here
               </Link>
             </p>

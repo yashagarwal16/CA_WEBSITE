@@ -15,6 +15,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import Consultation from './pages/Consultation';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const HomePage = () => (
   <>
@@ -74,11 +75,11 @@ function App() {
               <Route
                 path="/consultation"
                 element={
-                  <>
+                  <ProtectedRoute>
                     <Header />
                     <Consultation />
                     <Footer />
-                  </>
+                  </ProtectedRoute>
                 }
               />
 

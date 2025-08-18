@@ -26,7 +26,7 @@ const Services = () => {
       features: ['Daily bookkeeping & ledger maintenance', 'Financial statements & MIS reports', 'Expense tracking & analysis'],
       price: '₹5,000/month',
       popular: false,
-      trustBadge: '500+ Clients'
+      trustBadge: '5000+ Clients'
     },
     {
       id: 'taxation',
@@ -203,7 +203,7 @@ const Services = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 rounded-xl flex items-center justify-center mx-auto">
                 <Users className="h-6 w-6 text-purple-600 dark:text-purple-400" />
               </div>
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">500+</div>
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">5000+</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Happy Clients</div>
             </div>
             <div className="space-y-2">

@@ -76,7 +76,7 @@ const Testimonials = () => {
               <div className="text-sm text-gray-600 dark:text-gray-400">Average Rating</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">500+</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">5000+</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Happy Clients</div>
             </div>
             <div className="space-y-2">

@@ -18,7 +18,7 @@ const Hero = () => {
           <div className="inline-flex items-center bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20 dark:border-gray-700/20">
             <Award className="h-5 w-5 text-amber-500 mr-2" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Trusted by 500+ Clients • 6+ Years Excellence • 100% Compliance Rate
+              Trusted by 5000+ Clients • 6+ Years Excellence • 100% Compliance Rate
             </span>
           </div>
         </div>
@@ -58,7 +58,7 @@ const Hero = () => {
                     <Users className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                 </div>
-                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">500+</div>
+                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">5000+</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Satisfied Clients</div>
               </div>
               <div className="text-center">

@@ -83,9 +83,11 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-blue-400 dark:text-blue-300 mr-3 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-gray-400">
-                    123 Financial District<br />
-                    Suite 500<br />
-                    New York, NY 10004
+                    Ward No. 14, Mahabirsthan,
+                      Churri Patty Rd,Gobindapally
+                      <br />
+                    Dhupguri 735210<br />
+                    West Bengal, India
                   </p>
                 </div>
               </div>

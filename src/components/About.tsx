@@ -50,7 +50,7 @@ const About = () => {
   ];
 
   const achievements = [
-    { number: '500+', label: 'Satisfied Clients', icon: Users },
+    { number: '5000+', label: 'Satisfied Clients', icon: Users },
     { number: '6+', label: 'Years of Excellence', icon: Award },
     { number: '100%', label: 'Compliance Rate', icon: CheckCircle2 },
     { number: '24/7', label: 'Client Support', icon: Shield },

@@ -9,6 +9,9 @@ import authRoutes from './routes/auth.js';
 import chatRoutes from './routes/chat.js';
 import reviewRoutes from './routes/reviews.js';
 
+import path from "path";
+import { fileURLToPath } from "url";
+
 dotenv.config();
 
 // Connect to MongoDB
@@ -46,22 +49,14 @@ app.post('/api/book-consultation', async (req, res) => {
   };
 
   try {
-    // Log the consultation booking
     console.log(`📅 New consultation booked:`, bookingData);
 
-    // Send notifications to counselor
     const notificationResults = await sendBookingNotifications(bookingData);
-    
-    // Check if at least one notification was sent successfully
+
     const emailSent = notificationResults.email.success;
     const whatsappSent = notificationResults.whatsapp.success;
-    
+
     if (emailSent || whatsappSent) {
-      console.log('✅ Notifications sent:', {
-        email: emailSent ? 'Success' : 'Failed',
-        whatsapp: whatsappSent ? 'Success' : 'Failed'
-      });
-      
       res.json({ 
         success: true, 
         message: 'Consultation booked successfully! We will contact you within 24 hours.',
@@ -71,7 +66,6 @@ app.post('/api/book-consultation', async (req, res) => {
         }
       });
     } else {
-      console.log('⚠️ All notifications failed, but booking was recorded');
       res.json({ 
         success: true, 
         message: 'Consultation booked successfully! We will contact you within 24 hours.',
@@ -85,24 +79,25 @@ app.post('/api/book-consultation', async (req, res) => {
       phone: '+91 97334-12222'
     });
   }
-
 });
 
-// Default test route
-app.get('/', (req, res) => {
-  res.json({
-    status: 'Server is running',
-    message: 'Welcome to Kamlesh Temani & Associates API',
-    endpoints: {
-      auth: '/api/auth',
-      chat: '/api/chat',
-      reviews: '/api/reviews',
-      consultation: '/api/book-consultation'
-    }
-  });
+// -----------------------------
+// React frontend serving config
+// -----------------------------
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve React build files
+app.use(express.static(path.join(__dirname, "../dist")));
+
+// Any route not starting with /api/* should return React app
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
+// -----------------------------
 // Start server
+// -----------------------------
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });

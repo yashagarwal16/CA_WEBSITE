@@ -109,7 +109,7 @@ ${message ? `💬 *Message:* "${message}"` : ''}
 ---
 _Sent automatically from your website_
     `.trim();
-
+    console.log("📞 Sending WhatsApp to:", process.env.COUNSELOR_PHONE);
     const result = await twilioClient.messages.create({
       body: whatsappMessage,
       from: `whatsapp:${process.env.TWILIO_PHONE_NUMBER}`,

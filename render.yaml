@@ -1,15 +1,43 @@
 services:
   - type: web
-    name: ca-kamlesh-temani-website
-    env: static
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./build
-    pullRequestPreviewsEnabled: true
-    headers:
-      - path: /*
-        name: X-Robots-Tag
-        value: noindex
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    name: kamlesh-temani-app
+    env: node
+    buildCommand: |
+      npm install
+      npm run build
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GOOGLE_PLACES_API_KEY
+        sync: false
+      - key: GOOGLE_PLACE_ID
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_PHONE_NUMBER
+        sync: false
+      - key: COUNSELOR_EMAIL
+        sync: false
+      - key: COUNSELOR_PHONE
+        sync: false
+      - key: COUNSELOR_NAME
+        sync: false
